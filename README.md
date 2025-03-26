@@ -139,13 +139,6 @@ If there was a newer kernel included in the updates, I would recommend
 rebooting the system to apply the updated kernel. (The reboot button
 should be top-right of the window.)
 
-Also note that if the "No Subscription" popup bothers you that much, you
-can also install [Proxmox Fake
-Susbcription](https://github.com/Jamesits/pve-fake-subscription) This
-tricks your node into believing it has a valid subscription, thus
-preventing the pop up. It does **not** enable you to use the Enterprise
-repository for updates, though.
-
 ### Storage
 
 By default, a new Proxmox node will have 2 storage locations created:
