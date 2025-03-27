@@ -620,12 +620,12 @@ order to talk about backups, so let's build one real quick.
 In Proxmox, backups are also integrated into the core management
 interface. This is a bare-bones, basic backup, but it works well. For a
 more robust backup solution see [Proxmox Backup
-Server](pbsetup.md).
+Server](PBS%20Initial%20Setup.md).
 
 For this document, we will create a simple backup schedule which saves
 backups to the Windows Share we set up earlier. Along the way we will
 cover retention and restoration as well. All of these pieces will apply
-to [Proxmox Backup Server](pbsetup.md) once it is set up
+to [Proxmox Backup Server](PBS%20Initial%20Setup.md) once it is set up
 also.
 
 #### On Demand Backup
@@ -698,7 +698,7 @@ dialog](/img/screenshot_2025-02-14_163115.png)
 That's it! We have a working Proxmox installation, a good foundation to
 build from, a running VM to play with, and a working backup schedule. Be
 sure to continue by reading the page on setting up [Proxmox Backup
-Server](pbsetup.md)
+Server](PBS%20Initial%20Setup.md)
 
 [^1]: !PAY ATTENTION! - be sure you are picking the correct drive. This
     operation will completely wipe out any data on the drive!
