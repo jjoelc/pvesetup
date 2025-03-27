@@ -65,9 +65,9 @@ onto.
 
 - First you need to add the encryption keys for the PBS APT
   repositories:\
-      wget https://enterprise.proxmox.com/debian/proxmox-release-bookworm.gpg -O /etc/apt/trusted.gpg.d/proxmox-release-bookworm.gpg
+      `wget https://enterprise.proxmox.com/debian/proxmox-release-bookworm.gpg -O /etc/apt/trusted.gpg.d/proxmox-release-bookworm.gpg`
 - Next you add the PBS repository to the APT source list:\
-      nano /etc/apt/sources.list
+      `nano /etc/apt/sources.list`
 
   \
   then add the following lines:
@@ -129,8 +129,7 @@ sidebar, then go to "Repositories" You should see a list of the
 configured repositories similar to the image below.
 
 ![Proxmox repositories
-screen](/wansol/reference/screenshot_2025-02-09_125057.png){.align-center
-width="400" query="?direct&400"}
+screen](/img/screenshot_2025-02-09_125057.png)
 
 Click the "Add" button, and choose "No-Subscription" from the dropdown
 list. Then click "Add" again. At this point you should see both the
@@ -157,8 +156,7 @@ in the left sidebar, then choose "Disks" You should see information
 similar to the image below:
 
 ![Proxmox disk information
-screen](/wansol/reference/screenshot_2025-02-09_131733.png){.align-center
-width="400" query="?direct&400"}
+screen](/img/screenshot_2025-02-09_131733.png)
 
 In this example the first disk listed (`/dev/nvme0n1`) is the OS drive,
 and the other three drives are the ones you will be using to setup our
@@ -180,8 +178,7 @@ be nothing in this list right now. Click on "Create: ZFS" and you should
 see a dialog similar to the image below. [^3]
 
 ![Proxmox ZFS pool creation
-dialog](/wansol/reference/screenshot_2025-02-09_133333.png){.align-center
-width="400" query="?direct&400"}
+dialog](/img/screenshot_2025-02-09_133333.png)
 
 - Enter a name for the ZFS pool. In this example, enter `zbackups`
 - Select the drives to be used by placing a checkmark in the box next to
@@ -218,8 +215,7 @@ Proxmox Backup Server.
   "Content".
 - Top left, click "Add Namespace" and a new dialog will open:\
   ![Create Namespace
-  Dialog](/wansol/reference/screenshot_2025-03-07_135457.png){.align-center
-  width="400" query="?direct&400"}
+  Dialog](/img/screenshot_2025-03-07_135457.png)
   - **Parent Namespace** - In this case, your only option is "root", but
     if there are already other namespaces created, you will be able to
     select one here
@@ -254,8 +250,7 @@ them for any interval that makes sense for the environment.
 - Highlight the entry under Prune Jobs, then click the "Edit" button. A
   new dialog will open:\
   ![PBS Prune Job
-  Dialog](/wansol/reference/screenshot_2025-03-07_141624.png){.align-center
-  width="400" query="?direct&400"}
+  Dialog](/img/screenshot_2025-03-07_141624.png)
   - **Prune Schedule** - Leave this at daily for now. There are several
     example schedules you can choose from in the drop down, or you can
     just enter in your own schedule. (Search documentation for "Calendar
@@ -294,7 +289,7 @@ Essentially, the first time a verification job is run on any backup, a
 hash is created and stored. All later verification jobs re-run that hash
 process, and compares the result to the original. This verifies that the
 backup has not changed since it was first written. **This is
-[NOT]{.underline} a substitute for regular recovery testing!!** This
+NOT a substitute for regular recovery testing!!** This
 process helps to detect things like disk errors, bit-rot, or even
 ransomware attacks. It doesn't mean the backup will be able to be
 restored successfully, it just means the backup has not been altered
@@ -309,8 +304,7 @@ jobs. Schedule accordingly.
   Verify Jobs. The list will be empty.
 - Click "Add" and a new dialog will open:\
   ![PBS Verification Job
-  Dialog](/wansol/reference/screenshot_2025-03-07_153138.png){.align-center
-  width="400" query="?direct&400"}
+  Dialog](/img/screenshot_2025-03-07_153138.png)
   - **Schedule** - Type `sat 4:15` here. This will schedule the job to
     run at 4:15am every Saturday
   - **Namespace** - We will leave this at "root"
@@ -326,7 +320,7 @@ jobs. Schedule accordingly.
 
 Networking in PBS is configured nearly identically to how Proxmox
 Virtual Environment handles it. Please refer to [the Proxmox Virtual
-Environment Setup](/wansol/reference/proxmoxsetup#networking) page for
+Environment Setup](/img/proxmoxsetup#networking) page for
 more information.
 
 - Consider separate networks for management and data/backups. In
@@ -372,7 +366,7 @@ PBS has two realms available:
 PBS ships with support for Active Directory, Open LDAP, and OpenID
 Connect as additional realms. Setting up these realms is identical to
 setting them up in PVE so refer to the [Proxmox Virtual Environment
-Setup](/wansol/reference/proxmoxsetup#users_realms_and_roles) page for
+Setup](readme.md#users_realms_and_roles) page for
 more details.
 
 Note that any/all of these realms can be used side by side, though it is
@@ -400,7 +394,7 @@ to any part of the server.[^9] So you will also need to configure some
 permissions for this new account. This example will not set up MFA on
 this account, but MFA in PBS is set up identically to in PVE, so refer
 to the [Proxmox Virtual Environment
-Setup](/wansol/reference/proxmoxsetup#users_realms_and_roles) page for
+Setup](readme.md#users_realms_and_roles) page for
 more details.
 
 - Highlight Configuration -\> Access Control in the left sidebar, and
@@ -408,8 +402,7 @@ more details.
   account created during installation.
 - Click "Add" above the user list and a new dialog will open:\
   ![PBS new user
-  dialog](/wansol/reference/screenshot_2025-03-08_135048.png){.align-center
-  width="400" query="?direct&400"}
+  dialog](/img/screenshot_2025-03-08_135048.png)
   - Most fields are self explanatory.
   - **Realm** - For this example, you will leave it set to "Proxmox
     Backup authentication". If you have added another realm (such as
@@ -431,8 +424,7 @@ so setting up permissions is going to be extremely simple.
   point.
 - Click "Add -\> User Permission" and a new dialog will open:\
   ![PBS User permission
-  dialog](/wansol/reference/screenshot_2025-03-08_140920.png){.align-center
-  width="400" query="?direct&400"}
+  dialog](/img/screenshot_2025-03-08_140920.png)
   - **Path** - Since this is an administrator account, we will choose
     the root path `/`
   - **User** - Choose the new `pbsadmin` account we just created.
@@ -448,27 +440,26 @@ so setting up permissions is going to be extremely simple.
 
 We are nearly there! Next, we are going to set up an access token which
 we will use to connect PVE to PBS. You can also use a regular user
-account for this but an access token is going to be much safer. ((Not
+account for this but an access token is going to be much safer. (Not
 only will the access token only have the minimum permissions needed to
 create backups, but even if the PVE cluster were compromised somehow,
 **and** a flaw was found which allowed the stored credentials to be
 discovered, the access token would still not have permission to actually
-log into the PBS and cause further damage. ))
+log into the PBS and cause further damage. )
 
 - Still under Access Control, choose the "API Token" tab at the top of
   the main window. There won't be any tokens listed yet.
 - Click "Add" and a new dialog will open:\
   ![PBS create access token
-  dialog](/wansol/reference/screenshot_2025-03-08_151850.png){.align-center
-  width="400" query="?direct&400"}
+  dialog](/img/screenshot_2025-03-08_151850.png)
   - **User** - The user account the token will be tied to. [^10]
   - **Token Name** - Can be anything, no spaces allowed
 - When all the fields are entered correctly, click "Add" and a new
   dialog will open:\
   ![PBS Token Secret
-  Dialog](/wansol/reference/screenshot_2025-03-08_152114.png){.align-center
+  Dialog](/img/screenshot_2025-03-08_152114.png){.align-center
   width="400" query="?direct&400"}
-- **[IMPORTANT!]{.underline}** - Record this information. This will the
+- **IMPORTANT!** - Record this information. This will the
   the **only** chance you have to view the secret for this token. You
   will need this information to add PBS to PVE.
 
@@ -495,7 +486,7 @@ start creating backups!
   - Click "Show Fingerprint" in the title bar of the server summary
     widget. A new Dialog will open:\
     ![PBS Fingerprint
-    dialog](/wansol/reference/screenshot_2025-03-08_155834.png){.align-center
+    dialog](/img/screenshot_2025-03-08_155834.png){.align-center
     width="400" query="?direct&400"}
   - Copy this fingerprint. You **did** copy the API token ID and secret
     from the previous step, right? You'll need all of these to set up
@@ -507,21 +498,27 @@ start creating backups!
   - Go to Datastore -\> Storage
   - Click "Add -\> Proxmox Backup Server. A new dialog will open:\
     ![PVE Add PBS
-    dialog](/wansol/reference/screenshot_2025-03-08_160511.png){.align-center
-    width="400" query="?direct&400"} \* **ID** - The name PVE will call
-    this storage location. No spaces allowed. \* **Server** - FQDN or IP
-    of the PBS server \* **Username** - This will be the token ID you
-    created earlier. \* **Password** - The Token Secret you recorded
-    earlier. \* **Nodes** - Whether to add this storage to all nodes, or
-    specific nodes in the cluster. \* **Datastore** - `zbackup` in this
-    case \* **Namespace** - In this example, will be set as `backups` \*
-    **Fingerprint** - The fingerprint of PBS, copied earlier. \*
-    **Backup Retention Tab** - You will leave this blank for this
+    dialog](/img/screenshot_2025-03-08_160511.png)
+    - **ID** - The name PVE will call
+    this storage location. No spaces allowed.
+    - **Server** - FQDN or IP
+    of the PBS server
+    - **Username** - This will be the token ID you
+    created earlier.
+    - **Password** - The Token Secret you recorded
+    earlier.
+    - **Nodes** - Whether to add this storage to all nodes, or
+    specific nodes in the cluster.
+    - **Datastore** - `zbackup` in this
+    case
+    - **Namespace** - In this example, will be set as `backups`
+    - **Fingerprint** - The fingerprint of PBS, copied earlier.
+    - **Backup Retention Tab** - You will leave this blank for this
     example. This means backups to this storage location will use the
-    retention policy that is configured in PBS \* **Encryption Tab** -
-    For this example, you will not enable encryption. You will be
-    setting up an encrypted storage location later in this document. \*
-    When everything looks correct, click "Add" and the new storage
+    retention policy that is configured in PBS
+    - **Encryption Tab** - For this example, you will not enable encryption. You will be
+    setting up an encrypted storage location later in this document.
+    - When everything looks correct, click "Add" and the new storage
     location should be shown in the list.
 
 #### Make a Test Backup
@@ -550,7 +547,7 @@ test backup to make sure things are working.
 One feature you gain by creating backups to PBS is that you are able to
 do file level restores directly from inside PVE. Other restorations are
 also handled directly from PVE, so refer to the [Proxmox Virtual
-Environment Setup](/wansol/reference/proxmoxsetup#built-in_backups) page
+Environment Setup](readme.md#built-in_backups) page
 for details if needed.
 
 A walk through restoring a single file or directory from the backup we
@@ -562,8 +559,7 @@ just created.
   - Highlight the test backup in the list of available backups, then
     click the "File Restore" button. A new Dialog will open:\
     ![PVE file restore
-    dialog](/wansol/reference/screenshot_2025-03-08_164818.png){.align-center
-    width="400" query="?direct&400"}
+    dialog](/img/screenshot_2025-03-08_164818.png)
   - A tree of the drives and partitions included in the backup will be
     shown. Browse to the location of the file or directory you need to
     restore and highlight it.
@@ -627,17 +623,14 @@ First you need to create an encrypted backup you can sync.
     Server" The dialog should be familiar now, go ahead and fill out the
     General tab, be sure to add `remotes` as the namespace:\
     ![PVE add storage
-    dialog](/wansol/reference/screenshot_2025-03-09_125502.png){.align-center
-    width="400" query="?direct&400"}
+    dialog](/img/screenshot_2025-03-09_125502.png)
   - **Encryption Tab** - Go ahead and choose "Auto-generate a client
     encryption key"\
     ![PVE storage
-    dialog](/wansol/reference/screenshot_2025-03-09_125737.png){.align-center
-    width="400" query="?direct&400"}
+    dialog](/img/screenshot_2025-03-09_125737.png)
   - Now when you click "Add" a new dialog will open:\
     ![PVE encryption info
-    dialog](/wansol/reference/screenshot_2025-03-09_130021.png){.align-center
-    width="400" query="?direct&400"}
+    dialog](/img/screenshot_2025-03-09_130021.png)
   - **[IMPORTANT!]{.underline}** - This is your **ONLY** chance to
     record this encryption key. It is unrecoverable from the system. If
     you lose the key, any backups made with that key will be
@@ -672,8 +665,7 @@ instance:
 - Go to "Configuration -\> Remotes" then click "Add" a new dialog will
   open:\
   ![PBS add remote
-  dialog](/wansol/reference/screenshot_2025-03-09_140949.png){.align-center
-  width="400" query="?direct&400"}
+  dialog](/img/screenshot_2025-03-09_140949.png)
   - This dialog is very similar when you added your local PBS to PVE.
     Fill out the fields and click "Add" The new remote PBS should be
     shown in the listing now.
@@ -682,8 +674,7 @@ instance:
     Jobs" Any configured sync jobs will be listed here.
   - Click "Add -\> Pull Sync Job". A new dialog will open:\
     ![PBS Sync job
-    dialog](/wansol/reference/screenshot_2025-03-09_141721.png){.align-center
-    width="400" query="?direct&400"}
+    dialog](/img/screenshot_2025-03-09_141721.png)
     - **Local Namespace** - Destination the remote backups will be saved
       to
     - **Local Owner** - Local account which will be the "owner" of the
@@ -710,8 +701,7 @@ instance:
 Still on the remote PBS, highlight the sync job you just created, then
 click "Run Now" A new dialog will open, showing the status of the job.\
 ![PBS Sync job status
-dialog](/wansol/reference/screenshot_2025-03-09_143142.png){.align-center
-width="400" query="?direct&400"}
+dialog](/img/screenshot_2025-03-09_143142.png)
 
 If things are all set up correctly, the job should process successfully.
 
