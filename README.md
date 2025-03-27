@@ -210,7 +210,7 @@ sidebar](/img/screenshot_2025-02-09_135004.png)
 
 #### Windows (CIFS) Share
 
-A Windows network share likely doesn't have the performance you would
+A Windows network share doesn't have the performance or feature set you would
 want to be able to run virtual machines off of, but they sure can be a
 handy place to store backups or iso files. Let's get one added! [^4]
 
