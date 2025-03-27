@@ -244,6 +244,8 @@ single port on the NIC, so all screenshots will be coming from a live
 server with multiple ethernet ports available. Some screenshots may not
 exactly match the descriptions.
 
+Proxmox supports both standard Linux Bridges, Bonds and VLANs, and Open Virtual Switch (OVS) Bridges, Bonds and VLANs. This document will onl cover the default Linux networking setup. 
+
 Also, Proxmox includes Software Defined Network capabilities which will
 also not be covered here. [^5]
 
