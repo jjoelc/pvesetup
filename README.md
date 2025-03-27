@@ -120,8 +120,7 @@ left sidebar, then go to "Updates -\> Repositories" You should see a
 list of the configured repositories similar to the image below.
 
 ![Proxmox repositories
-screen](/wansol/reference/screenshot_2025-02-09_125057.png){.align-center
-width="400" query="?direct&400"}
+screen](/img/screenshot_2025-02-09_125057.png)
 
 Click the "Add" button, and choose "No-Subscription" from the dropdown
 list. Then click "Add" again. At this point you should see both the
@@ -164,8 +163,7 @@ the node in the left sidebar, then choose "Disks" You should see
 information similar to the image below:
 
 ![Proxmox disk information
-screen](/wansol/reference/screenshot_2025-02-09_131733.png){.align-center
-width="400" query="?direct&400"}
+screen](/img/screenshot_2025-02-09_131733.png)
 
 In this example the first disk listed (`/dev/nvme0n1`) is the OS drive,
 and the other three drives are the ones we will be using to setup our
@@ -187,8 +185,7 @@ be nothing in this list right now. Click on "Create: ZFS" and you should
 see a dialog similar to the image below.
 
 ![Proxmox ZFS pool creation
-dialog](/wansol/reference/screenshot_2025-02-09_133333.png){.align-center
-width="400" query="?direct&400"}
+dialog](/img/screenshot_2025-02-09_133333.png)
 
 - Enter a name for the ZFS pool. In this example, we will enter
   `ZFS-Data`
@@ -209,8 +206,7 @@ determined in this case. [^3]
 When you are happy with the settings, Click "Create" and the ZFS pool
 will be created and should be visible in the left sidebar: ![Proxmox
 storage
-sidebar](/wansol/reference/screenshot_2025-02-09_135004.png){.align-center
-query="?direct&"}
+sidebar](/img/screenshot_2025-02-09_135004.png)
 
 #### Windows (CIFS) Share
 
@@ -222,8 +218,7 @@ handy place to store backups or iso files. Let's get one added! [^4]
   should see a list of the existing storage locations configured so far.
 - Click "Add → SMB/CIFS" and a dialog window will open up: ![Proxmox SMB
   connect
-  dialog](/wansol/reference/screenshot_2025-02-09_141203.png){.align-center
-  width="400" query="?direct&400"}
+  dialog](/img/screenshot_2025-02-09_141203.png)
 - Fill out the fields as needed:
   - **ID**  = This can be anything, it will be the name the storage location is listed as in Proxmox.
   - **Nodes**  = Whether this storage should be configured on all nodes in the cluster, or only specific ones.
@@ -263,8 +258,7 @@ use later for clustering. When we are done, the result should look
 similar to the following:
 
 ![Proxmox network information
-screen](/wansol/reference/screenshot_2025-02-09_160457.png){.align-center
-width="600" query="?direct&600"}
+screen](/img/screenshot_2025-02-09_160457.png)
 
 Start by highlighting the node in the left sidebar, then choosing
 "System -\> Network". You should see a list of the physical network
@@ -288,8 +282,7 @@ So to get started, click on "Create -\> Linux Bridge". A dialog window
 similar to the image below will open up.
 
 ![Proxmox bridge create
-dialog](/wansol/reference/screenshot_2025-02-09_152247.png){.align-center
-width="400" query="?direct&400"}
+dialog](/img/screenshot_2025-02-09_152247.png)
 
 - **Name** = Can be anything, but in this case we will use the default
   naming (`vmbr2`).
@@ -318,8 +311,7 @@ Now we will create VLANs and attach them to the bridge. Click "Create
 -\> Linux VLAN" and a dialog windows will open.
 
 ![Proxmox VLAN create
-dialog](/wansol/reference/screenshot_2025-02-09_153825.png){.align-center
-width="400" query="?direct&400"}
+dialog](/img/screenshot_2025-02-09_153825.png)
 
 - **Name** = Can be anything **but** if you define the name similar to
   `vmbrx.yy`[^8], some of the other fields will be filled out for you.
@@ -395,8 +387,7 @@ Creating a new Cluster is very simple.
   "Cluster"
 - Click "Create Cluster" and a new dialog windows will open:\
   ![Proxmox create cluster
-  dialog](/wansol/reference/screenshot_2025-02-09_172242.png){.align-center
-  width="600" query="?direct&600"}
+  dialog](/img/screenshot_2025-02-09_172242.png)
 - Give the cluster a name
 - Choose a network link or links for the cluster to communicate over. If
   you add muliple links, lower numbered links get highest priority and
@@ -414,15 +405,13 @@ the join information from one of the nodes already in the cluster.
 - On the node already a member of the cluster, go to Datacenter -\>
   Cluster, then click "Join Information" A dialog windows will open\
   ![Proxmox join cluster
-  dialog](/wansol/reference/screenshot_2025-02-09_173511.png){.align-center
-  width="400" query="?direct&400"}
+  dialog](/img/screenshot_2025-02-09_173511.png)
 - Click the "Copy Information" button to place the join string into the
   clipboard.
 - Now on the node you need to join to the cluster, Start at Datacenter
   -\> Cluster and click "Join Cluster" a dialog windows will open\
   ![Proxmox cluster join
-  dialog](/wansol/reference/screenshot_2025-02-09_173806.png){.align-center
-  width="400" query="?direct&400"}
+  dialog](/img/screenshot_2025-02-09_173806.png)
 - Paste in the join string you copied from the other node and click
   "Join"
 - You will be prompted for the `root` account password of the node which
@@ -440,8 +429,7 @@ create entries for all of the nodes [^10] in each node's ''hosts'' file.
 - Make any edits needed in the main window, then click "Save" when you
   are done.\
   ![proxmox hosts file
-  edit](/wansol/reference/screenshot_2025-03-24_181029.png){.align-center
-  width="400" query="?direct&400"}
+  edit](/img/screenshot_2025-03-24_181029.png)
 
 ### Users, Realms, and Roles
 
@@ -501,16 +489,15 @@ administrator permissions.
 - First we need to create a new group, so start at Datacenter -\> Groups
 - Click "Create" and a new Dialog will open\
   ![Proxmox New Group
-  Dialog](/wansol/reference/screenshot_2025-02-10_155630.png){.align-center
-  query="?direct"}
+  Dialog](/img/screenshot_2025-02-10_155630.png)
 - Name this new Group "Admins", enter a comment if you would like, and
   click "Create" The new group should appear in the list.
 - Now let's set the permissions this group will have. Go To Datacenter
   -\> Permissions and click "Add -\> Group Permission" a new dialog will
   open\
   ![Proxmox new permission
-  dialog](/wansol/reference/screenshot_2025-02-10_160134.png){.align-center
-  query="?direct"} \* **Path** = We will set this as ''/'' this is the
+  dialog](/img/screenshot_2025-02-10_160134.png)
+  - **Path** = We will set this as ''/'' this is the
   root path. Click the "help" button to open the documentation to the
   permissions and paths section.
   - **Group** = We will choose the "Admins" group we just created.
@@ -522,8 +509,7 @@ administrator permissions.
 - Now we are ready to create the new user. Go to Datacenter -\> Users.
   Click the "Add button and a new dialog will open\
   ![Proxmox new user
-  dialog](/wansol/reference/screenshot_2025-02-10_161111.png){.align-center
-  width="400" query="?direct&400"} \* Fill out the fields, be sure to
+  dialog](/img/screenshot_2025-02-10_161111.png) \* Fill out the fields, be sure to
   choose "Proxmox VE Authentication" as the realm and out new "Admins"
   group. If this user will only need temporary access, you can set a
   date for the account to expire as well. When you are happy with your
@@ -534,8 +520,7 @@ administrator permissions.
 - Now let's set up MFA for this user. Go to Datacenter -\> Permissions
   -\> Two Factor, then click "Add -\> TOTP". A new dialog will open\
   ![Proxmox new totp
-  dialog](/wansol/reference/screenshot_2025-02-10_161930.png){.align-center
-  width="400" query="?direct&400"}
+  dialog](/img/screenshot_2025-02-10_161930.png)
 - Select our new user from the dropdown, and enter a description.
 - Use any compliant TOTP app (Google Auth, Microsoft Authenticator,
   Authy, etc.) to scan the provided QR Code, or paste the secret into
@@ -567,8 +552,7 @@ Proxmox who will authenticate using that realm.
   two default realms listed.
 - Click "Add -\> Active Directory Server" A new dialog will open.\
   ![Proxmox AD Realm
-  dialog](/wansol/reference/screenshot_2025-02-11_110612.png){.align-center
-  width="400" query="?direct&400"}
+  dialog](/img/screenshot_2025-02-11_110612.png)
   - **Realm** - The name Proxmox will use to identify the realm. Cannot
     include any spaces. [^12]
   - **Domain** - The domain name you are connecting to
@@ -598,7 +582,7 @@ Active Directory.
   * **Realm** - Choose the new AD realm we just created
   * **Group** - The group you want to assign this user to. Right now, we only have the one "Administrators" set up, but if you have other groups configured you can pick the appropriate one for this user. 
   * Once everything looks correct, click "Add" and the user will show up in the list. 
-  * Let's test the new user. The simplest way will be to open Proxmox in either a different browser, or in private or incognito mode. \\  {{ :wansol:reference:screenshot_2025-02-11_113042.png?direct&400 |Proxmox login dialog}}
+  * Let's test the new user. The simplest way will be to open Proxmox in either a different browser, or in private or incognito mode. \\  ![Proxmox login dialog](/img/screenshot_2025-02-11_113042.png)
   * Just be sure to select Your Active Directory Realm from the drop down, and enter the user credentials. If you set everything up right, you should be logged in.
 
 ## Your First Virtual Machine
@@ -609,8 +593,7 @@ order to talk about backups, so let's build one real quick.
 
 - Top-right of the page, click "Create VM" a new Dialog will open.\
   ![Proxmox new VM
-  dialog](/wansol/reference/screenshot_2025-02-11_145214.png){.align-center
-  width="400" query="?direct&400"}
+  dialog](/img/screenshot_2025-02-11_145214.png)
 - This is a wizard which walks you through all of the settings for a new
   VM. Most of these are very common and self-explanatory, so we will
   only mention a couple of points.
@@ -637,12 +620,12 @@ order to talk about backups, so let's build one real quick.
 In Proxmox, backups are also integrated into the core management
 interface. This is a bare-bones, basic backup, but it works well. For a
 more robust backup solution see [Proxmox Backup
-Server](/wansol/reference/pbsetup).
+Server](pbsetup.md).
 
 For this document, we will create a simple backup schedule which saves
 backups to the Windows Share we set up earlier. Along the way we will
 cover retention and restoration as well. All of these pieces will apply
-to [Proxmox Backup Server](/wansol/reference/pbsetup) once it is set up
+to [Proxmox Backup Server](pbsetup.md) once it is set up
 also.
 
 #### On Demand Backup
@@ -652,8 +635,7 @@ time very simply. From the left sidebar, highlight the virtual machine,
 then choose "Backup".
 
 ![Proxmox VM backup
-window](/wansol/reference/screenshot_2025-02-14_154258.png){.align-center
-width="400" query="?direct&400"}
+window](/img/screenshot_2025-02-14_154258.png)
 
 Across the top of the main windows are several action buttons, and a
 drop-down to choose a storage location. The main window will show a list
@@ -687,8 +669,7 @@ this is our first schedule, click the "Add" button up top and a new
 dialog will open
 
 ![Proxmox backup schedule
-dialog](/wansol/reference/screenshot_2025-02-14_163115.png){.align-center
-width="400" query="?direct&400"}
+dialog](/img/screenshot_2025-02-14_163115.png)
 
 - **Storage** - Choose the Windows share we configured earlier.
 - **Schedule** - There are several pre-built schedules you can choose
@@ -697,7 +678,7 @@ width="400" query="?direct&400"}
   handy Schedule Simulator you can use to simulate the results of a
   schedule and is handy for learning the syntax and ensuring what you
   enter gives the results you expect.
-- \*\* Send email to:\*\* - enter the address to send job notifications
+- **Send email to:** - enter the address to send job notifications
   to for this schedule.
 - Then in the lower section of the dialog place a checkmark next to the
   virtual machines you want to be included in this job.
@@ -717,7 +698,7 @@ width="400" query="?direct&400"}
 That's it! We have a working Proxmox installation, a good foundation to
 build from, a running VM to play with, and a working backup schedule. Be
 sure to continue by reading the page on setting up [Proxmox Backup
-Server](/wansol/reference/pbsetup)
+Server](pbsetup.md)
 
 [^1]: !PAY ATTENTION! - be sure you are picking the correct drive. This
     operation will completely wipe out any data on the drive!
