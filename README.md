@@ -144,7 +144,7 @@ By default, a new Proxmox node will have 2 storage locations created:
 
 - **"local"** - Is actually just a path on the root drive: `/var/lib/vz`
     - This path is configured to store backups, iso images and Linux container templates.
-  - **"local-lvm"**  - This is a Logical Volume Manager partition comprising roughly half the available space on the root drive.
+- **"local-lvm"**  - This is a Logical Volume Manager partition comprising roughly half the available space on the root drive.
     - This path is configured to store VM disks and Linux Container Volumes.
 
 On a stand alone node, these storage locations should be more than
