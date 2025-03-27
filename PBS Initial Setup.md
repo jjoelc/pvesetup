@@ -54,11 +54,13 @@ longer-term or even off site backups.
   - Separate storage from your primary VM storage is also highly
     recommended.
 
-### Install on one of your VM Hosts
+### Install on one of your PVE Nodes
 
 Installation to a virtual machine is essentially the same as installing
 onto bare metal, so this section is specific to installing PBS directly
 onto one of your VM nodes, alongside PVE.
+
+Again, This is **NOT** a recommended way to install PBS, so be sure you are aware of the additional risks and possible headaches for recovery if you choose to install PBS in this manner.
 
 Log in as root to the console (SSH) of the node you want to install PBS
 onto.
@@ -320,8 +322,10 @@ jobs. Schedule accordingly.
 
 Networking in PBS is configured nearly identically to how Proxmox
 Virtual Environment handles it. Please refer to [the Proxmox Virtual
-Environment Setup](/img/proxmoxsetup#networking) page for
-more information.
+Environment Setup](/README.md#networking) page for
+more information. 
+
+Also note that PBS does not have support (at least in the GUI) for using OVS. Only the standard Linux Bridges, Bonds and VLANs are available. 
 
 - Consider separate networks for management and data/backups. In
   addition to better performance, it is always a good idea to segregate
