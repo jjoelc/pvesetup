@@ -366,7 +366,7 @@ PBS has two realms available:
 PBS ships with support for Active Directory, Open LDAP, and OpenID
 Connect as additional realms. Setting up these realms is identical to
 setting them up in PVE so refer to the [Proxmox Virtual Environment
-Setup](README.md#users_realms_and_roles) page for
+Setup](README.md#users-realms-and-roles) page for
 more details.
 
 Note that any/all of these realms can be used side by side, though it is
@@ -394,7 +394,7 @@ to any part of the server.[^9] So you will also need to configure some
 permissions for this new account. This example will not set up MFA on
 this account, but MFA in PBS is set up identically to in PVE, so refer
 to the [Proxmox Virtual Environment
-Setup](README.md#users_realms_and_roles) page for
+Setup](README.md#users-realms-and-roles) page for
 more details.
 
 - Highlight Configuration -\> Access Control in the left sidebar, and
@@ -547,7 +547,7 @@ test backup to make sure things are working.
 One feature you gain by creating backups to PBS is that you are able to
 do file level restores directly from inside PVE. Other restorations are
 also handled directly from PVE, so refer to the [Proxmox Virtual
-Environment Setup](README.md#built-in_backups) page
+Environment Setup](README.md#built-in-backups) page
 for details if needed.
 
 A walk through restoring a single file or directory from the backup we
