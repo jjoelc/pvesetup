@@ -1,5 +1,8 @@
 # Proxmox Backup Server
 
+(Note that this walkthrough uses a [Proxmox Virtual Environment
+Setup](README.md) which was configured in a previous walkthrough. If you are starting from scratch, I'd recommend starting with that walkthrough.)
+
 While the Proxmox Virtual Environment includes basic backup abilities,
 adding Proxmox Backup Server (PBS) provides a much more robust backup
 solution, and provides many additional functions. We will not be
