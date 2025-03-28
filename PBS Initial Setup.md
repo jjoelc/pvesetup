@@ -40,8 +40,7 @@ longer-term or even off site backups.
   - Consider placing PBS onto a separate/isolated network. This can help
     with performance, but provides isolation/segregation as well.
   - PBS has support for Tape backup, including auto-changers, and
-    printing barcodes, etc. WANSOL has not had any opportunity to test
-    this yet, though.
+    printing barcodes, etc. This piece will not be covered in this document, but hopefully by the time you make it through this setup, you should be confident enough in the documentation and general functioning of te server to get that part going! 
 - **Virtual Environment Considerations**
   - Reminder - **This is NOT the recommended install method.**
   - There are two options for this arrangement also:
