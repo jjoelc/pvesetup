@@ -40,12 +40,16 @@ longer-term or even off site backups.
     printing barcodes, etc. WANSOL has not had any opportunity to test
     this yet, though.
 - **Virtual Environment Considerations**
+  - Reminder - **This is NOT the recommended install method.**
   - There are two options for this arrangement also:
     - Install directly on one of your Nodes - This makes assigning
       dedicated storage simpler, but means you can't really backup the
       backup server itself, or migrate it to a different node, etc. if
-      the need arises. This would be a good option for a small, 2 node
-      cluster though.
+      the need arises. This can seriously complicate (or completely break)
+      your recovery efforts if the host running PBS has hardware issues
+      and needs to be restored.
+      - If you are sure you know what you are doing, and want to install this way,
+        see the end of the article for instructions. 
     - Create a virtual machine inside of Proxmox, and install PBS to
       this VM. This allows more flexibility and would likely be the
       better option for larger clusters, but possibly adds some overhead
@@ -53,39 +57,6 @@ longer-term or even off site backups.
   - Still recommend the fastest storage you can get.
   - Separate storage from your primary VM storage is also highly
     recommended.
-
-### Install on one of your PVE Nodes
-
-Installation to a virtual machine is essentially the same as installing
-onto bare metal, so this section is specific to installing PBS directly
-onto one of your VM nodes, alongside PVE.
-
-Again, This is **NOT** a recommended way to install PBS, so be sure you are aware of the additional risks and possible headaches for recovery if you choose to install PBS in this manner.
-
-Log in as root to the console (SSH) of the node you want to install PBS
-onto.
-
-- First you need to add the encryption keys for the PBS APT
-  repositories:\
-      `wget https://enterprise.proxmox.com/debian/proxmox-release-bookworm.gpg -O /etc/apt/trusted.gpg.d/proxmox-release-bookworm.gpg`
-- Next you add the PBS repository to the APT source list:\
-      `nano /etc/apt/sources.list`
-
-  \
-  then add the following lines:
-
-<!-- -->
-
-    # Proxmox Backup Server pbs-no-subscription repository provided by proxmox.com
-    deb http://download.proxmox.com/debian/pbs bookworm pbs-no-subscription
-
-- Save the file (CTRL+O) and exit Nano (CTRL+X).
-- `apt update` to refresh the list of available software/updates
-- then `apt install proxmox-backup-server` to actually install the
-  server.
-- When installation is complete, you can reach the PBS web interface at
-  <https://ip.address.of.node:8007/> and log in using the same root
-  account already configured on the node.
 
 ### Bare Metal Installation
 
@@ -707,7 +678,9 @@ click "Run Now" A new dialog will open, showing the status of the job.\
 ![PBS Sync job status
 dialog](/img/screenshot_2025-03-09_143142.png)
 
-If things are all set up correctly, the job should process successfully.
+If things are all set up correctly, the job should process successfully. 
+If something goes sideways, now isd the time to troubleshoot it. Namespaces 
+can be tricky if you aren't paying attention!
 
 If needed, remember to schedule prune, garbage collection, and
 verification job schedules for these remote backups.
@@ -716,6 +689,36 @@ verification job schedules for these remote backups.
 
 That's it! You should have a nice solid foundation to build additional
 users, tokens, datastores, namespaces and create backups to them.
+
+### Install on one of your PVE Nodes
+
+You Rebel!
+Again, This is **NOT** a recommended way to install PBS, so be sure you are aware of the additional risks and possible headaches for recovery if you choose to install PBS in this manner.
+
+Log in as root to the console (SSH) of the node you want to install PBS
+onto.
+
+- First you need to add the encryption keys for the PBS APT
+  repositories:\
+      `wget https://enterprise.proxmox.com/debian/proxmox-release-bookworm.gpg -O /etc/apt/trusted.gpg.d/proxmox-release-bookworm.gpg`
+- Next you add the PBS repository to the APT source list:\
+      `nano /etc/apt/sources.list`
+
+  \
+  then add the following lines:
+
+<!-- -->
+
+    # Proxmox Backup Server pbs-no-subscription repository provided by proxmox.com
+    deb http://download.proxmox.com/debian/pbs bookworm pbs-no-subscription
+
+- Save the file (CTRL+O) and exit Nano (CTRL+X).
+- `apt update` to refresh the list of available software/updates
+- then `apt install proxmox-backup-server` to actually install the
+  server.
+- When installation is complete, you can reach the PBS web interface at
+  <https://ip.address.of.node:8007/> and log in using the same root
+  account already configured on the node.
 
 [^1]: !PAY ATTENTION! - be sure you are picking the correct drive. This
     operation will completely wipe out any data on the drive!
