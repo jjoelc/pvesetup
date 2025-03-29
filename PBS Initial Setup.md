@@ -463,8 +463,7 @@ start creating backups!
   - Click "Show Fingerprint" in the title bar of the server summary
     widget. A new Dialog will open:\
     ![PBS Fingerprint
-    dialog](/img/screenshot_2025-03-08_155834.png){.align-center
-    width="400" query="?direct&400"}
+    dialog](/img/screenshot_2025-03-08_155834.png)
   - Copy this fingerprint. You **did** copy the API token ID and secret
     from the previous step, right? You'll need all of these to set up
     the connection the PVE \* Also, make note of the datastore and
@@ -472,7 +471,7 @@ start creating backups!
     datastore will be ''zbackup'' and you will use the backups
     namespace.
 - **In the Proxmox Virtual Environment interface**
-  - Go to Datastore -\> Storage
+  - Go to Datacenter -\> Storage
   - Click "Add -\> Proxmox Backup Server. A new dialog will open:\
     ![PVE Add PBS
     dialog](/img/screenshot_2025-03-08_160511.png)
@@ -608,7 +607,7 @@ First you need to create an encrypted backup you can sync.
   - Now when you click "Add" a new dialog will open:\
     ![PVE encryption info
     dialog](/img/screenshot_2025-03-09_130021.png)
-  - **[IMPORTANT!]{.underline}** - This is your **ONLY** chance to
+  - **IMPORTANT!** - This is your **ONLY** chance to
     record this encryption key. It is unrecoverable from the system. If
     you lose the key, any backups made with that key will be
     unrecoverable.
