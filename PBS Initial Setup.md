@@ -434,8 +434,7 @@ log into the PBS and cause further damage. )
 - When all the fields are entered correctly, click "Add" and a new
   dialog will open:\
   ![PBS Token Secret
-  Dialog](/img/screenshot_2025-03-08_152114.png){.align-center
-  width="400" query="?direct&400"}
+  Dialog](/img/screenshot_2025-03-08_152114.png)
 - **IMPORTANT!** - Record this information. This will the
   the **only** chance you have to view the secret for this token. You
   will need this information to add PBS to PVE.
@@ -452,6 +451,7 @@ click the Permissions tab.
   to lower level namespaces remove the check.
 - When everything looks right, click "Add" and the new permission should
   be shown in the list.
+- Repeat the process, choosing "DatastoreReader" for the role the second time. Whe done, you should see the two new entries in the permissions list.
 
 ## Connect PBS to PVE
 
