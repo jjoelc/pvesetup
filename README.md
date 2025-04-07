@@ -440,6 +440,13 @@ scratch the surface in this document. I would **highly** recommend
 referring to the documentation for complete descriptions of the
 permissions systems in Proxmox.
 
+It is *not* a good idea to use the root account for regular day-to-day activities in Proxmox (or anywhere else, for that matter!)
+The root account should only be uised when truly required, such as installing updates, or a few other functions on the local node. 
+So we will create an Administrator account and an account tied to Active Directory, either of which can be used for most 
+administrative tasks in Proxmox. The basic process willbe identical for any other accounts needed. You should always keep in mind
+to only provide users withthe *minimum* permissions needed to complete the tasks assigned to them, an no more. Again, referring 
+to the documentation is the way to go for complete information. 
+
 #### Realms
 
 A realm is basically just a source for user authentication. By default,
@@ -587,6 +594,8 @@ Active Directory.
   * Let's test the new user. The simplest way will be to open Proxmox in either a different browser, or in private or incognito mode. \\  ![Proxmox login dialog](/img/screenshot_2025-02-11_113042.png)
   * Just be sure to select Your Active Directory Realm from the drop down, and enter the user credentials. If you set everything up right, you should be logged in.
 
+ You should now be able to continue to add users and assign the permissions they need. Specifics will of course vary depending on the client needs.
+
 ## Your First Virtual Machine
 
 Quite honestly, creating a new VM in Proxmox is at least as simple as it
@@ -626,9 +635,8 @@ Server](PBS%20Initial%20Setup.md).
 
 For this document, we will create a simple backup schedule which saves
 backups to the Windows Share we set up earlier. Along the way we will
-cover retention and restoration as well. All of these pieces will apply
-to [Proxmox Backup Server](PBS%20Initial%20Setup.md) once it is set up
-also.
+cover retention and restoration also. All of these processes will also apply
+to [Proxmox Backup Server](PBS%20Initial%20Setup.md) once it is set up.
 
 #### On Demand Backup
 
@@ -731,12 +739,12 @@ Server](PBS%20Initial%20Setup.md)
 
 [^8]: Where x is the bridge number and yy is the VLAN number
 
-[^9]: screenshot shows a gateway, but was not needed
+[^9]: screenshot shows a gateway, but is not needed. Only a signle default gateway should be defined on a node.
 
 [^10]: and any other high priority devices
 
 [^11]: The idea of AD causing a new user to be created in the virtual
-    environment just gives me a case of the heebie-jeevies, even with
+    environment just gives me a case of the heebie-jeebies, even with
     good AD monitoring and reporting...
 
 [^12]: Despite the screenshot!
