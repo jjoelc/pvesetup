@@ -192,7 +192,8 @@ dialog](/img/screenshot_2025-02-09_133333.png)
 - Select the drives to be used by placing a checkmark in the box next to
   each listing.
 - Choose the RAID level.
-  - This is a big topic, and beyond the scope of this document, but generally speaking, if you have 6 or fewer drives, you probably want to choose one of the RAIDZ options. If you have a higher number of drives, you probably want one of the "dRAID" options.
+  - This is a big topic, and beyond the scope of this document, but generally speaking, if you have 10 or fewer drives, you probably want to choose one of the RAIDZ options. If you have a higher number of drives, you probably want one of the "dRAID" options.
+   - To be clear, this configuration is not presented as "ideal" for any given need. There is a *lot* of nuance in designing storage. This example is used to demonstrate a simpple setup using only the Proxmox web interface. It is more than good enough for a sinple lab setup but you should really put some thought and research into determining the storage layout of any production system. 
    - There are as many ways of configuring drives for ZFS as there are drives. For more complex setups, you will need to use the command line for setup. The ProxMox GUI only supports some basic options.
    - RAIDZ - Similar to RAID5 - uses one drive for parity
    - RAIDZ2 - Uses 2 drives for parity
